@@ -15,6 +15,7 @@ public class Guild {
 	private Long id;
 	private String name;
 
+
 	@ManyToMany(mappedBy = "guilds")
 	private Set<Character> members = new HashSet<>();
 

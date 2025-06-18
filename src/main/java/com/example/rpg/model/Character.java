@@ -5,6 +5,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -27,6 +29,7 @@ public class Character {
 	private Inventory inventory;
 
 	@ManyToMany
+	@JsonBackReference
 	@JoinTable(name = "character_guild", joinColumns = @JoinColumn(name = "character_id"), inverseJoinColumns = @JoinColumn(name = "guild_id"))
 	private Set<Guild> guilds = new HashSet<>();
 
